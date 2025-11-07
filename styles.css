@@ -300,8 +300,14 @@ header h1 {
 
 .EasyMDEContainer .CodeMirror {
     border: none;
-    min-height: 500px;
+    height: calc(100vh - 320px);
+    max-height: calc(100vh - 320px);
     font-size: 14px;
+}
+
+.EasyMDEContainer .CodeMirror-scroll {
+    min-height: 100%;
+    overflow-y: auto !important;
 }
 
 /* Dark theme overrides for CodeMirror */
@@ -332,12 +338,33 @@ body.dark-theme .editor-toolbar {
 
 body.dark-theme .editor-toolbar a {
     color: var(--text-primary) !important;
+    opacity: 1;
+}
+
+body.dark-theme .editor-toolbar a i {
+    color: #c9d1d9 !important;
+}
+
+body.dark-theme .editor-toolbar button {
+    color: #c9d1d9 !important;
+    filter: brightness(1.2);
 }
 
 body.dark-theme .editor-toolbar a:hover,
 body.dark-theme .editor-toolbar a.active {
     background: var(--bg-hover);
     border-color: var(--border-color);
+}
+
+/* Fix for EasyMDE icon visibility in dark mode */
+body.dark-theme .editor-toolbar a::before {
+    color: #c9d1d9 !important;
+}
+
+body.dark-theme .editor-toolbar .fa,
+body.dark-theme .editor-toolbar .icon {
+    color: #c9d1d9 !important;
+    opacity: 0.9;
 }
 
 body.dark-theme .editor-toolbar i.separator {
