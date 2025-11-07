@@ -1,0 +1,15 @@
+{
+  "name": "gist-editor",
+  "version": "1.0.0",
+  "description": "Local GitHub Gist markdown editor using gh CLI authentication",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["gist", "markdown", "editor", "github"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

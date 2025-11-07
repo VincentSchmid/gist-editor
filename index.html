@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Gist Editor</title>
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 GitHub Gist Editor</h1>
+            <div class="header-actions">
+                <button id="themeToggle" class="theme-toggle" title="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button id="settingsBtn" class="btn btn-secondary">⚙️ Settings</button>
+                <button id="loadGistsBtn" class="btn btn-primary">📂 Load Gists</button>
+            </div>
+        </header>
+
+        <!-- Settings Panel -->
+        <div id="settingsPanel" class="panel hidden">
+            <h2>Settings</h2>
+            <div class="form-group">
+                <label>GitHub CLI Authentication (Recommended):</label>
+                <p style="margin-bottom: 10px; color: #586069; font-size: 14px;">
+                    If you have the GitHub CLI installed and authenticated, click below to automatically use it:
+                </p>
+                <button id="refreshTokenBtn" class="btn btn-primary">🔄 Use GitHub CLI</button>
+                <small style="margin-top: 10px;">
+                    Don't have GitHub CLI?
+                    <a href="https://cli.github.com/" target="_blank">Install it here</a>
+                    and run <code>gh auth login</code>
+                </small>
+            </div>
+
+            <hr style="margin: 20px 0; border: none; border-top: 1px solid #e1e4e8;">
+
+            <div class="form-group">
+                <label for="tokenInput">Or use a Personal Access Token:</label>
+                <input type="password" id="tokenInput" placeholder="ghp_...">
+                <small>
+                    <a href="https://github.com/settings/tokens/new?scopes=gist" target="_blank">
+                        Create a token here
+                    </a>
+                    (requires 'gist' scope)
+                </small>
+                <button id="saveTokenBtn" class="btn btn-primary" style="margin-top: 10px;">Save Token</button>
+            </div>
+
+            <button id="closeSettingsBtn" class="btn btn-secondary" style="margin-top: 10px;">Close</button>
+        </div>
+
+        <!-- Gist Selector Panel -->
+        <div id="gistPanel" class="panel hidden">
+            <h2>Select a Gist</h2>
+            <div id="gistList" class="gist-list"></div>
+            <button id="closeGistPanelBtn" class="btn btn-secondary">Close</button>
+        </div>
+
+        <!-- Editor Section -->
+        <div id="editorSection" class="hidden">
+            <div class="editor-header">
+                <div class="gist-info">
+                    <h2 id="gistTitle">No gist loaded</h2>
+                    <span id="gistFilename" class="filename"></span>
+                </div>
+                <div class="editor-actions">
+                    <button id="saveBtn" class="btn btn-success">💾 Save</button>
+                    <button id="closeEditorBtn" class="btn btn-secondary">✕ Close</button>
+                </div>
+            </div>
+            <textarea id="editor"></textarea>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="statusMessage" class="status-message hidden"></div>
+    </div>
+
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
