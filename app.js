@@ -32,7 +32,16 @@ class GistEditor {
                 'link', 'image', 'code', '|',
                 'preview', 'side-by-side', 'fullscreen', '|',
                 'guide'
-            ]
+            ],
+            // Enable code folding for markdown headings
+            CodeMirrorOptions: {
+                foldGutter: true,
+                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+                lineNumbers: true,
+                foldOptions: {
+                    widget: "↔"
+                }
+            }
         });
     }
 

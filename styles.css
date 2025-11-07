@@ -378,6 +378,59 @@ body.dark-theme .editor-preview-side {
     color: var(--text-primary);
 }
 
+/* Code folding gutter styles */
+.CodeMirror-foldmarker {
+    color: var(--color-primary);
+    text-shadow: none;
+    font-family: arial;
+    line-height: 0.3;
+    cursor: pointer;
+}
+
+.CodeMirror-foldgutter {
+    width: 12px;
+}
+
+.CodeMirror-foldgutter-open,
+.CodeMirror-foldgutter-folded {
+    cursor: pointer;
+    color: var(--text-tertiary);
+}
+
+.CodeMirror-foldgutter-open:hover,
+.CodeMirror-foldgutter-folded:hover {
+    color: var(--color-primary);
+}
+
+.CodeMirror-foldgutter-open:after {
+    content: "\25BC";
+    font-size: 10px;
+}
+
+.CodeMirror-foldgutter-folded:after {
+    content: "\25B6";
+    font-size: 10px;
+}
+
+/* Dark theme fold gutter */
+body.dark-theme .CodeMirror-foldgutter-open,
+body.dark-theme .CodeMirror-foldgutter-folded {
+    color: var(--text-tertiary);
+}
+
+body.dark-theme .CodeMirror-foldgutter-open:hover,
+body.dark-theme .CodeMirror-foldgutter-folded:hover {
+    color: var(--color-primary);
+}
+
+body.dark-theme .CodeMirror-foldmarker {
+    color: var(--color-primary);
+    background-color: var(--bg-hover);
+    border: 1px solid var(--border-color);
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
 .status-message {
     position: fixed;
     top: 20px;
