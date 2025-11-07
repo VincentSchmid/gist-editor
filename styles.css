@@ -352,8 +352,15 @@ body.dark-theme .editor-toolbar button {
 
 body.dark-theme .editor-toolbar a:hover,
 body.dark-theme .editor-toolbar a.active {
-    background: var(--bg-hover);
-    border-color: var(--border-color);
+    background: var(--bg-hover) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Fix active button icon visibility */
+body.dark-theme .editor-toolbar a.active::before,
+body.dark-theme .editor-toolbar a.active i {
+    color: #c9d1d9 !important;
+    opacity: 1 !important;
 }
 
 /* Fix for EasyMDE icon visibility in dark mode */
@@ -376,6 +383,30 @@ body.dark-theme .editor-preview,
 body.dark-theme .editor-preview-side {
     background: var(--bg-tertiary);
     color: var(--text-primary);
+}
+
+/* Code block styling in preview for dark theme */
+body.dark-theme .editor-preview pre,
+body.dark-theme .editor-preview-side pre {
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+}
+
+body.dark-theme .editor-preview code,
+body.dark-theme .editor-preview-side code {
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+body.dark-theme .editor-preview pre code,
+body.dark-theme .editor-preview-side pre code {
+    background: transparent !important;
+    border: none;
+    padding: 0;
 }
 
 /* Code folding gutter styles */
