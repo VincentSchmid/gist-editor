@@ -350,17 +350,24 @@ body.dark-theme .editor-toolbar button {
     filter: brightness(1.2);
 }
 
-body.dark-theme .editor-toolbar a:hover,
-body.dark-theme .editor-toolbar a.active {
+body.dark-theme .editor-toolbar a:hover {
     background: var(--bg-hover) !important;
     border-color: var(--border-color) !important;
 }
 
-/* Fix active button icon visibility */
+body.dark-theme .editor-toolbar a.active {
+    background: var(--color-primary-alpha) !important;
+    border-color: var(--color-primary) !important;
+}
+
+/* Fix active button icon visibility - override all EasyMDE defaults */
 body.dark-theme .editor-toolbar a.active::before,
-body.dark-theme .editor-toolbar a.active i {
-    color: #c9d1d9 !important;
+body.dark-theme .editor-toolbar a.active i,
+body.dark-theme .editor-toolbar a.active .fa,
+body.dark-theme .editor-toolbar a.active .icon {
+    color: var(--color-primary) !important;
     opacity: 1 !important;
+    filter: brightness(1.5) !important;
 }
 
 /* Fix for EasyMDE icon visibility in dark mode */
